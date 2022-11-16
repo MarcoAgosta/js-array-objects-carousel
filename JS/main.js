@@ -24,19 +24,26 @@ const images = [
 
 const upBtn = document.getElementById("button-up")
 const downBtn = document.getElementById("button-down")
-
 const centralImg = document.getElementById("img-center")
 const centralScritta = document.getElementById("scritta")
 const listaImg = document.getElementById("lista-img")
 
+
+let currentImg = 0
+
+
 centralImg.innerHTML = `<img class="w-100" src=${images[0].image} alt="Immagine centrale del gioco">`
 centralScritta.innerHTML = `<h4 class="text-right">${images[0].title}</h4> <p>${images[0].text}</p>`
 
-for (let i=0; i < images.length; i++){
 
+images.forEach(function(element, i,){
     if (i==0){
-        listaImg.innerHTML += `<img src=${images[i].image} class="w-100" alt="Immagine laterale">`
+        listaImg.innerHTML += `<img src=${element.image} class="w-100" alt="Immagine laterale">`
     } else {
-        listaImg.innerHTML += `<img src=${images[i].image} class="w-100 gray" alt="Immagine laterale">`
+        listaImg.innerHTML += `<img src=${element.image} class="w-100 gray" alt="Immagine laterale">`
     }
-}
+} );
+
+
+
+downBtn.addEventListener( "click", slideDown())
