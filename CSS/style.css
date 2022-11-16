@@ -1,0 +1,32 @@
+#img-center{
+    height: 400px;
+    object-fit: cover;
+}
+
+.col-3 img{
+    height: 80px;
+    object-fit: cover;
+}
+
+.col-3 button{
+left: 45%;
+border: none;
+border-radius: 100%;
+}
+
+#button-up{
+top: 1%;
+}
+
+#button-down{
+bottom: 1%;
+}
+
+#scritta{
+    bottom: 0;
+    color: white;
+}
+
+.gray{
+    filter: grayscale(80%);
+}
