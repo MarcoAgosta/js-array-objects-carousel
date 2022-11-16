@@ -25,20 +25,20 @@ const images = [
 
 
 //Prese le parti variabili del documento
-const upBtn = document.getElementById("button-up")
-const downBtn = document.getElementById("button-down")
-const centralImg = document.getElementById("img-center")
-const centralScritta = document.getElementById("scritta")
-const listaImg = document.getElementById("lista-img")
+const upBtn = document.getElementById("button-up");
+const downBtn = document.getElementById("button-down");
+const centralImg = document.getElementById("img-center");
+const centralScritta = document.getElementById("scritta");
+const listaImg = document.getElementById("lista-img");
 
 
 //Creata la variabile con cui terrò traccia dell'immagine attiva
-let currentImg = 0
+let currentImg = 0;
 
 
 //Creata situazione iniziale della pagina
-centralImg.innerHTML = `<img class="w-100" src=${images[0].image} alt="Immagine centrale del gioco">`
-centralScritta.innerHTML = `<h4 class="text-right">${images[0].title}</h4> <p>${images[0].text}</p>`
+centralImg.innerHTML = `<img class="w-100" src=${images[0].image} alt="Immagine centrale del gioco">`;
+centralScritta.innerHTML = `<h4 class="text-right">${images[0].title}</h4> <p>${images[0].text}</p>`;
 images.forEach(function(element, i,){
     if (i==0){
         listaImg.innerHTML += `<img src=${element.image} class="w-100" alt="Immagine laterale">`
@@ -53,5 +53,44 @@ downBtn.addEventListener( "click", slideDown);
 upBtn.addEventListener( "click", slideUp);
 
 
-//Creo un intervallo di tempo in cui ogni 3 secondi l'immagine scorre
-setInterval(slideDown, 3000) 
+//Prendo i pulsanti che controlleranno l'auto-slide
+const playBtn = document.getElementById("btn-play");
+const stopBtn = document.getElementById("btn-stop");
+const changeBtn = document.getElementById("btn-change");
+
+
+//Creo due variabili che mi serviranno per far funzionare il timer
+let clock = null;
+let scorrimento = 1
+
+
+//Do la funzione ai tre pulsanti che gestiscono l'auto-slide
+playBtn.addEventListener("click", function(){
+    clearInterval(clock);
+
+    if (scorrimento == 1){
+        clock = setInterval(slideDown, 3000);
+    } else if (scorrimento == 0){
+        clock = setInterval(slideUp, 3000)
+    };
+} );
+
+stopBtn.addEventListener("click", function(){
+    clearInterval(clock);
+});
+
+changeBtn.addEventListener("click", function(){
+    clearInterval(clock);
+
+    if (scorrimento == 1){
+        scorrimento = 0
+    } else if (scorrimento == 0){
+        scorrimento = 1
+    };
+
+    if (scorrimento == 1){
+        clock = setInterval(slideDown, 3000);
+    } else if (scorrimento == 0){
+        clock = setInterval(slideUp, 3000)
+    };
+})
