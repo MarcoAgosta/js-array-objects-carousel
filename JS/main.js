@@ -46,4 +46,6 @@ images.forEach(function(element, i,){
 
 
 
-downBtn.addEventListener( "click", slideDown())
+downBtn.addEventListener( "click", slideDown);
+
+upBtn.addEventListener( "click", slideUp);
