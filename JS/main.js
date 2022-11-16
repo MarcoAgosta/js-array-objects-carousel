@@ -22,6 +22,7 @@ const images = [
     }
 ];
 
+//Prese le parti variabili del documento
 const upBtn = document.getElementById("button-up")
 const downBtn = document.getElementById("button-down")
 const centralImg = document.getElementById("img-center")
@@ -29,13 +30,12 @@ const centralScritta = document.getElementById("scritta")
 const listaImg = document.getElementById("lista-img")
 
 
+//Creata la variabile con cui terrò traccia dell'immagine attiva
 let currentImg = 0
 
-
+//Creata situazione iniziale della pagina
 centralImg.innerHTML = `<img class="w-100" src=${images[0].image} alt="Immagine centrale del gioco">`
 centralScritta.innerHTML = `<h4 class="text-right">${images[0].title}</h4> <p>${images[0].text}</p>`
-
-
 images.forEach(function(element, i,){
     if (i==0){
         listaImg.innerHTML += `<img src=${element.image} class="w-100" alt="Immagine laterale">`
@@ -45,7 +45,6 @@ images.forEach(function(element, i,){
 } );
 
 
-
+//Data la funzione ai due pulsanti
 downBtn.addEventListener( "click", slideDown);
-
 upBtn.addEventListener( "click", slideUp);
