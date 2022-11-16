@@ -1,4 +1,4 @@
-#img-center{
+#img-center img{
     height: 400px;
     object-fit: cover;
 }
@@ -12,6 +12,7 @@
 left: 45%;
 border: none;
 border-radius: 100%;
+z-index: 10;
 }
 
 #button-up{
