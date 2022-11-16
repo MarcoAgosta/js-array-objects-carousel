@@ -1,3 +1,4 @@
+//Array di objects con image, title e text
 const images = [
     {
         image: 'img/01.webp',
@@ -22,6 +23,7 @@ const images = [
     }
 ];
 
+
 //Prese le parti variabili del documento
 const upBtn = document.getElementById("button-up")
 const downBtn = document.getElementById("button-down")
@@ -32,6 +34,7 @@ const listaImg = document.getElementById("lista-img")
 
 //Creata la variabile con cui terrò traccia dell'immagine attiva
 let currentImg = 0
+
 
 //Creata situazione iniziale della pagina
 centralImg.innerHTML = `<img class="w-100" src=${images[0].image} alt="Immagine centrale del gioco">`
@@ -48,3 +51,7 @@ images.forEach(function(element, i,){
 //Data la funzione ai due pulsanti
 downBtn.addEventListener( "click", slideDown);
 upBtn.addEventListener( "click", slideUp);
+
+
+//Creo un intervallo di tempo in cui ogni 3 secondi l'immagine scorre
+setInterval(slideDown, 3000) 

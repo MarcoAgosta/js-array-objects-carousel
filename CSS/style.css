@@ -30,4 +30,5 @@ bottom: 1%;
 
 .gray{
     filter: grayscale(80%);
+    transition: filter .5s;
 }
